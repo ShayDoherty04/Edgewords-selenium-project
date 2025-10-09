@@ -34,12 +34,8 @@ public class CleanUp {
         shop.addItem(beanie);
         shop.goToCart();
         cart.removeCode();
-        //cart.goToCheckout();
-        //checkout.waitForCheckoutFields();
-        //checkout.cleanCheckout();
-        //shop.goToCart();
         cart.clearCart();
-        logOut.LogOut();  // Logout via your new POM
+        logOut.LogOut();
     }
 
 }

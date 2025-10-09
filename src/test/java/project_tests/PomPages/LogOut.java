@@ -35,19 +35,6 @@ public class LogOut {
         this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(7));
     }
 
-    //page actions
-
-    //remove coupon
-//    public void removeCoupon(){
-//        WebElement removeCoupon = wait.until(ExpectedConditions.visibilityOfElementLocated(removeCouponBtn));
-//
-//        // Scroll it into view
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", removeCoupon);
-//
-//        // Wait until clickable
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", removeCoupon);
-//    }
-
     public void clickAccountPage (){
         // Click on the account page link
         WebElement accPage = wait.until(ExpectedConditions.visibilityOfElementLocated(accountPage));

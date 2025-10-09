@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import project_tests.utilities.EnvVariables;
 
 import java.time.Duration;
 
@@ -20,7 +19,6 @@ public class Home {
     }
 
     public void goToShop(){
-        //driver.findElement(shop).click();
         wait.until(ExpectedConditions.elementToBeClickable(shop)).click();
     }
 

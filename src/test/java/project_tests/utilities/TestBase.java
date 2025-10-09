@@ -18,8 +18,8 @@ public class TestBase {
 
 
     @BeforeEach
-    public void setUp(TestInfo testInfo){ //Runs before each and every test in the class - setting up a new (clean) browser
-        driver = new ChromeDriver(); //Opens Chrome and puts a reference to it in the (generic) WebDriver field
+    public void setUp(TestInfo testInfo){ //runs before each and every test in the class - setting up a new (clean) browser
+        driver = new ChromeDriver(); //opens Chrome and puts a reference to it in the (generic) WebDriver field
         logger.info("Starting test: " + testInfo.getDisplayName());
         String url = EnvVariables.get("URL");
         driver.get(url);
@@ -31,8 +31,7 @@ public class TestBase {
 
 
     @AfterEach
-    public void tearDown(TestInfo testInfo){ //Runs each time a test finishes
-        //driver.close(); //Closes the current tab
+    public void tearDown(TestInfo testInfo){ //runs each time a test finishes
         driver.quit(); //Quits the browser - and the driver server
         logger.info("Ending test: " + testInfo.getDisplayName());
     }

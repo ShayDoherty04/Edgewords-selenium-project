@@ -55,47 +55,7 @@ public class Shop {
         return currentCount;
     }
 
-    //page actions
-//    //add beanie
-//    public void addBeanie(){
-//        //driver.findElement(beanie).click();
-//        wait.until(ExpectedConditions.elementToBeClickable(beanie)).click();
-//        //add one to counter after item added
-//        int currentCount = counter();
-//        currentCount++;
-//        //conditional if current count singular item plural items
-//        String expectedText = currentCount + (currentCount < 2 ? " item" : " items");
-//        //wait until span recognises item added to cart
-//        wait.until(ExpectedConditions.textToBePresentInElementLocated(cartCount, expectedText));
-//
-//
-//    }
-//
-//    //add belt
-//    public void addBelt(){
-//        //driver.findElement(belt).click();
-//        wait.until(ExpectedConditions.elementToBeClickable(belt)).click();
-//        //add one to counter after item added
-//        int currentCount = counter();
-//        currentCount++;
-//        //conditional if current count singular item plural items
-//        String expectedText = currentCount + (currentCount < 2 ? " item" : " items");
-//        //wait until span recognises item added to cart
-//        wait.until(ExpectedConditions.textToBePresentInElementLocated(cartCount, expectedText));
-//    }
-//
-//    //add Cap
-//    public void addCap(){
-//        //driver.findElement(cap).click();
-//        wait.until(ExpectedConditions.elementToBeClickable(cap)).click();
-//        //add one to counter after item added
-//        int currentCount = counter();
-//        currentCount++;
-//        //conditional if current count singular item plural items
-//        String expectedText = currentCount + (currentCount < 2 ? " item" : " items");
-//        //wait until span recognises item added to cart
-//        wait.until(ExpectedConditions.textToBePresentInElementLocated(cartCount, expectedText));
-//    }
+
     //add items in more scaleable way
     public void addItem(By item){
 
@@ -121,7 +81,7 @@ public class Shop {
                 wait.until(ExpectedConditions.invisibilityOf(dismissLink));
             }
         } catch (TimeoutException | NoSuchElementException e) {
-            //dismiss link not present safe to proceed
+
         }
     }
 

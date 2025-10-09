@@ -70,10 +70,6 @@ public class Cart {
         String text = driver.findElement(total).getText();
         inputCode();
         clickApplyCode();
-//        wait.until(driver -> {
-//            String newText = driver.findElement(total).getText();
-//            return !newText.equals(text);
-//        });
         wait.until(ExpectedConditions.visibilityOfElementLocated(couponApplied));
         logger.debug("coupon applied");
 
@@ -82,7 +78,7 @@ public class Cart {
     public void removeCode(){
         List<WebElement> removeCouponElements = driver.findElements(removeCoupon);
         if (!removeCouponElements.isEmpty()) {
-            //removeCouponElements.get(0).click();
+
             WebElement code = removeCouponElements.get(0);
             ((JavascriptExecutor)driver).executeScript("arguments[0].click();", code);
         }
@@ -97,7 +93,9 @@ public class Cart {
         List<WebElement> removeButtons = driver.findElements(removeItem);
         driver.findElement(dismissLink).click();
         while (!removeButtons.isEmpty()){
-            removeButtons.get(0).click();
+            WebElement removeButton = removeButtons.get(0);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", removeButton);
+
 
             wait.until(ExpectedConditions.invisibilityOf(removeButtons.get(0)));
 

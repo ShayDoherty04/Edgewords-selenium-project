@@ -57,7 +57,7 @@ public class Tests extends TestBase {
                 });
         Allure.step("go to shop", () -> {
                     //click shop button
-                    //wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#menu-item-43 > a"))).click();
+
                     Home home = new Home(driver);
                     home.goToShop();
                 });
@@ -82,21 +82,20 @@ public class Tests extends TestBase {
             //find number stored in total element
             WebElement totalElement = driver.findElement(By.cssSelector("#post-5 > div > div > div.cart-collaterals > div > table > tbody > tr.order-total > td > strong > span > bdi"));
             String totalString = totalElement.getText().substring(1, totalElement.getText().length());
-            //System.out.println(totalString);
+
             BigDecimal totalNum = new BigDecimal(totalString);
-            //System.out.println(totalNum);
+
 
             //divide cart price by discount
             //left prints commented to show thought process
             WebElement coupon = driver.findElement(By.cssSelector("#post-5 > div > div > div.cart-collaterals > div > table > tbody > tr.cart-discount.coupon-edgewords > th"));
             String couponText = coupon.getText().substring(8, coupon.getText().length());
-            //System.out.println(couponText);
+
             WebElement subTotalEl = driver.findElement(By.cssSelector("#post-5 > div > div > div.cart-collaterals > div > table > tbody > tr.cart-subtotal > td > span > bdi"));
-            //System.out.println(subTotalEl);
+
             String subTotalString = subTotalEl.getText().substring(1, subTotalEl.getText().length());
-            //System.out.println(subTotalString);
+
             BigDecimal subTotal = new BigDecimal(subTotalString);
-            //System.out.println(subTotal);
 
             BigDecimal shipp = new BigDecimal("3.95");
             BigDecimal result = BigDecimal.ZERO;
@@ -116,47 +115,7 @@ public class Tests extends TestBase {
             logger.debug("asserted prices were equal");
         });
 
-//        //Locate the remove coupon button
-
-//        WebElement removeCoupon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.woocommerce-remove-coupon")));
 //
-//        // Scroll it into view
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", removeCoupon);
-//
-//        // clicks remove coupon button
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", removeCoupon);
-//
-//
-//
-//        // Click on the account page link
-//        WebElement accPage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#menu-item-46 > a")));
-//
-//        // Scroll to it
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", accPage);
-//
-//        // Use JS to click
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", accPage);
-//
-//
-//        // Wait until element disappears
-//        // Wait for the new title to appear instead
-//        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("h1.entry-title"), "My account"));
-//
-//
-//        // Wait for the logout link to be present and clickable
-//        By logoutText = By.linkText("Log out");
-//        wait.until(ExpectedConditions.presenceOfElementLocated(logoutText));
-//        //wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("h1.entry-title"), 0));
-//        wait.until(ExpectedConditions.elementToBeClickable(logoutText));
-//
-//        //find logout element
-//        WebElement logout = driver.findElement(logoutText);
-//
-//        // Scroll into view
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", logout);
-//
-//        // Click the logout element
-//        logout.click();
         Allure.step("log out", ()-> {
             LogOut logOut = new LogOut(driver);
             logOut.LogOut();
@@ -200,42 +159,6 @@ public class Tests extends TestBase {
                 });
 
         Allure.step("checkout form", ()-> {
-                    //fill out checkout form
-                    //first name
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_first_name"))).sendKeys("Shay");
-//
-//                    //second name
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_last_name"))).sendKeys("Doherty");
-//
-//                    //country
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#select2-billing_country-container"))).click();
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(@class, 'select2-results__option') and text()='United Kingdom (UK)']"))).click();
-//
-//
-//                    //street
-//                    String street = EnvVariables.get("STREET");
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_address_1"))).sendKeys(street);
-//
-//                    //city
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_city"))).sendKeys("Manchester");
-//
-//                    //postcode
-//                    String postCode = EnvVariables.get("POST_CODE");
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_postcode"))).clear();
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_postcode"))).sendKeys(postCode);
-//
-//                    //phone
-//                    String phone = EnvVariables.get("PHONE");
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_phone"))).sendKeys(phone);
-//
-//                    //email
-//                    String email = EnvVariables.get("EMAIL");
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_email"))).clear();
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#billing_email"))).sendKeys(email);
-//
-//                    //place order
-//                    WebElement placeOrder = driver.findElement(By.cssSelector("#place_order"));
-//                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", placeOrder);
 
             Checkout checkout = new Checkout(driver);
             checkout.cleanCheckout();
@@ -248,11 +171,8 @@ public class Tests extends TestBase {
                     wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#post-6 > div > div > div > ul > li.woocommerce-order-overview__order.order")));
                     WebElement orderNumEl = driver.findElement(By.cssSelector("#post-6 > div > div > div > ul > li.woocommerce-order-overview__order.order"));
                     String orderNumStr = orderNumEl.getText();
-                    //System.out.println(orderNumStr);
                     String orderNumSlice = orderNumStr.substring(14);
-                    //System.out.println(orderNumSlice);
                     int orderNum = Integer.parseInt(orderNumSlice);
-                    //System.out.println(orderNum);
 
                     //go to account page
                     wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#menu-item-46 > a"))).click();
@@ -264,15 +184,13 @@ public class Tests extends TestBase {
                     WebElement firstOrderLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("tbody > tr:first-of-type td.woocommerce-orders-table__cell-order-number a")));
 
                     String orderIntStr = firstOrderLink.getText().substring(1);
-                    //System.out.println(orderIntStr);
+
                     Integer orderInt = Integer.parseInt(orderIntStr);
 
                     assertEquals(orderNum, orderInt);
                 });
 
-        //wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Logout"))).click();
-//        CleanUp cleanUp = new CleanUp(driver);
-//        cleanUp.CleanUp();
+
         Allure.step("log out", ()-> {
             LogOut logOut = new LogOut(driver);
             logOut.LogOut();
