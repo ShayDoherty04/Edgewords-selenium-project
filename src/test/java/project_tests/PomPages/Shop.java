@@ -8,6 +8,7 @@ import java.time.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import project_tests.utilities.TestBase;
+import project_tests.utilities.UtilMethods;
 
 
 public class Shop {
@@ -47,13 +48,13 @@ public class Shop {
 
     //counter
     //counter needed to wait for correct text in span element so i know product is added to cart
-    public  int counter() {
-        //store span element in string variable
-        String countText = driver.findElement(cartCount).getText();
-        //split into [0, "item"] store 0
-        int currentCount = Integer.parseInt(countText.split(" ")[0]);
-        return currentCount;
-    }
+//    public  int counter() {
+//        //store span element in string variable
+//        String countText = driver.findElement(cartCount).getText();
+//        //split into [0, "item"] store 0
+//        int currentCount = Integer.parseInt(countText.split(" ")[0]);
+//        return currentCount;
+//    }
 
 
     //add items in more scaleable way
@@ -62,7 +63,8 @@ public class Shop {
         WebElement clickableItem = wait.until(ExpectedConditions.presenceOfElementLocated(item));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", clickableItem);
 
-        int currentCount = counter();
+        UtilMethods util = new UtilMethods();
+        int currentCount = util.counter(driver);
         currentCount++;
 
         String expectedText = currentCount + (currentCount < 2 ? " item" : " items");

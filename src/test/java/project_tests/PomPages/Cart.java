@@ -65,7 +65,7 @@ public class Cart {
         wait.until(ExpectedConditions.elementToBeClickable(apply)).click();
     }
 
-
+    //apply
     public void applyCode (){
         String text = driver.findElement(total).getText();
         inputCode();
@@ -75,6 +75,7 @@ public class Cart {
 
     }
 
+    //remove coupon code
     public void removeCode(){
         List<WebElement> removeCouponElements = driver.findElements(removeCoupon);
         if (!removeCouponElements.isEmpty()) {

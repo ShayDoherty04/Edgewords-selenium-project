@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class UtilMethods {
 
@@ -32,5 +34,14 @@ public class UtilMethods {
 
         // If not found or error occurs
         return null;
+    }
+
+    public int counter(WebDriver driver) {
+        By cartCount = By.cssSelector(".count");
+
+        String countText = driver.findElement(cartCount).getText();
+        int currentCount = Integer.parseInt(countText.split(" ")[0]);
+
+        return currentCount;
     }
 }

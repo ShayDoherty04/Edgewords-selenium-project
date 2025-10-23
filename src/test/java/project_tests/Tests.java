@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -80,7 +79,7 @@ public class Tests extends TestBase {
         Allure.step("assert total = subtotal/discount + shipping", ()-> {
             // assert price is correct
             //find number stored in total element
-            WebElement totalElement = driver.findElement(By.cssSelector("#post-5 > div > div > div.cart-collaterals > div > table > tbody > tr.order-total > td > strong > span > bdi"));
+            WebElement totalElement = driver.findElement(By.cssSelector("tr.order-total bdi"));
             String totalString = totalElement.getText().substring(1, totalElement.getText().length());
 
             BigDecimal totalNum = new BigDecimal(totalString);
@@ -88,10 +87,10 @@ public class Tests extends TestBase {
 
             //divide cart price by discount
             //left prints commented to show thought process
-            WebElement coupon = driver.findElement(By.cssSelector("#post-5 > div > div > div.cart-collaterals > div > table > tbody > tr.cart-discount.coupon-edgewords > th"));
+            WebElement coupon = driver.findElement(By.cssSelector("tr.coupon-edgewords > th"));
             String couponText = coupon.getText().substring(8, coupon.getText().length());
 
-            WebElement subTotalEl = driver.findElement(By.cssSelector("#post-5 > div > div > div.cart-collaterals > div > table > tbody > tr.cart-subtotal > td > span > bdi"));
+            WebElement subTotalEl = driver.findElement(By.cssSelector("tr.cart-subtotal bdi"));
 
             String subTotalString = subTotalEl.getText().substring(1, subTotalEl.getText().length());
 
@@ -155,7 +154,7 @@ public class Tests extends TestBase {
                     );
 
                     //go to checkout
-                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#post-5 > div > div > div.cart-collaterals > div > div > a"))).click();
+                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.checkout-button"))).click();
                 });
 
         Allure.step("checkout form", ()-> {
@@ -168,8 +167,8 @@ public class Tests extends TestBase {
 
         Allure.step("assert order numbers are the same", ()-> {
                     //save order number in variable
-                    wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#post-6 > div > div > div > ul > li.woocommerce-order-overview__order.order")));
-                    WebElement orderNumEl = driver.findElement(By.cssSelector("#post-6 > div > div > div > ul > li.woocommerce-order-overview__order.order"));
+                    wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li.woocommerce-order-overview__order.order")));
+                    WebElement orderNumEl = driver.findElement(By.cssSelector("li.woocommerce-order-overview__order.order"));
                     String orderNumStr = orderNumEl.getText();
                     String orderNumSlice = orderNumStr.substring(14);
                     int orderNum = Integer.parseInt(orderNumSlice);
@@ -178,7 +177,7 @@ public class Tests extends TestBase {
                     wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#menu-item-46 > a"))).click();
 
                     //go to order
-                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#post-7 > div > div > nav > ul > li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--orders > a"))).click();
+                    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li.woocommerce-MyAccount-navigation-link--orders > a"))).click();
 
                     //get order number from account page
                     WebElement firstOrderLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("tbody > tr:first-of-type td.woocommerce-orders-table__cell-order-number a")));
