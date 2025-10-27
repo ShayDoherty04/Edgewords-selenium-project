@@ -19,7 +19,7 @@ public class Cart {
     WebDriver driver;
     WebDriverWait wait;
 
-    private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
+    private static final Logger logger = LoggerFactory.getLogger(Cart.class);
     //locators
     //coupon input
     By couponInput = By.cssSelector("#coupon_code");

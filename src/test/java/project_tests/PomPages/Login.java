@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import project_tests.utilities.TestBase;
+//import project_tests.utilities.TestBase;
 
 
 public class Login {
     WebDriver driver;
 
-    private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
+    private static final Logger logger = LoggerFactory.getLogger(Login.class);
 
     //define locators
     //username entry element

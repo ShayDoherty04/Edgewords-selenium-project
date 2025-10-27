@@ -7,14 +7,14 @@ import java.time.Duration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import project_tests.utilities.TestBase;
+//import project_tests.utilities.TestBase;
 import project_tests.utilities.UtilMethods;
 
 
 public class Shop {
     WebDriver driver;
     WebDriverWait wait;
-    private static final Logger logger = LoggerFactory.getLogger(TestBase.class);
+    private static final Logger logger = LoggerFactory.getLogger(Shop.class);
 
 
     //define locators
