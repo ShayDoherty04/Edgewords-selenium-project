@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import project_tests.PomPages.*;
-import project_tests.Tests;
+
 import project_tests.utilities.UtilMethods;
 
 import java.math.BigDecimal;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CheckPriceStep {
 
     private WebDriver driver;
-    private static final Logger logger = LoggerFactory.getLogger(Tests.class);
+    private static final Logger logger = LoggerFactory.getLogger(CheckPriceStep.class);
 
     public CheckPriceStep(WebDriver driver){
         this.driver = driver;
