@@ -13,7 +13,7 @@ import project_tests.utilities.*;
 public class ApplyCodeStepDefinitions {
     ApplyCodeStep applyCodeStep = new ApplyCodeStep(Hooks.getDriver());
 
-    @And("the user enters the discount code")
+    @When("the user clicks apply coupon with a valid code")
     public void navigateToShop(){
         applyCodeStep.applyDiscountCode();
     }

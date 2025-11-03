@@ -8,6 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import project_tests.utilities.EnvVariables;
+import project_tests.PomPages.*;
 //import project_tests.utilities.TestBase;
 import test_flows.CleanUp;
 
@@ -15,7 +16,6 @@ import test_flows.CleanUp;
 public class Hooks {
 
     private static WebDriver driver;
-
 
     @Before
     public void setUp() {
@@ -30,9 +30,13 @@ public class Hooks {
 
     @After
     public void tearDown() {
+        LogOut logOut = new LogOut(driver);
+        logOut.LogOut();
         if (driver != null) {
             driver.quit();
         }
+
+
     }
 
     public static WebDriver getDriver() {

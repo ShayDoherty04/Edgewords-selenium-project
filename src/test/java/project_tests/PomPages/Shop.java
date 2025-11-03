@@ -46,15 +46,7 @@ public class Shop {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(7));
     }
 
-    //counter
-    //counter needed to wait for correct text in span element so i know product is added to cart
-//    public  int counter() {
-//        //store span element in string variable
-//        String countText = driver.findElement(cartCount).getText();
-//        //split into [0, "item"] store 0
-//        int currentCount = Integer.parseInt(countText.split(" ")[0]);
-//        return currentCount;
-//    }
+
 
 
     //add items in more scaleable way
