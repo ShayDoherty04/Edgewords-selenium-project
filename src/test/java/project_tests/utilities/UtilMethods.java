@@ -15,7 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import project_tests.PomPages.*;
-import project_tests.steps.CheckPriceStep;
 
 import static java.math.RoundingMode.DOWN;
 import static org.junit.jupiter.api.Assertions.assertEquals;
