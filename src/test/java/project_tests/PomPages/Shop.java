@@ -55,7 +55,7 @@ public class Shop {
         WebElement clickableItem = wait.until(ExpectedConditions.presenceOfElementLocated(item));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", clickableItem);
 
-        UtilMethods util = new UtilMethods();
+        UtilMethods util = new UtilMethods(driver);
         int currentCount = util.counter(driver);
         currentCount++;
 

@@ -10,13 +10,13 @@ import project_tests.steps.*;
 import project_tests.utilities.*;
 
 public class CartStepDefinitions {
-    CartStep cartStep = new CartStep(Hooks.getDriver());
+    UtilMethods utilMethods = new UtilMethods(Hooks.getDriver());
     @Given("the user is on the cart page with an item in the cart")
     public void navigateToShop(){
-        cartStep.navigateToLoginPage();
-        cartStep.enterLoginDetails();
-        cartStep.navigateToShop();
-        cartStep.addItemsToCart();
-        cartStep.goToCart();
+        utilMethods.navigateToLoginPage();
+        utilMethods.enterLoginDetails();
+        utilMethods.navigateToShop();
+        utilMethods.addItemsToCart();
+        utilMethods.goToCart();
     }
 }

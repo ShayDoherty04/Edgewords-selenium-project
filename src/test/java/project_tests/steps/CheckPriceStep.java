@@ -47,7 +47,7 @@ public class CheckPriceStep {
 
             BigDecimal shipp = new BigDecimal("3.95");
             BigDecimal result = BigDecimal.ZERO;
-            UtilMethods util = new UtilMethods();
+            UtilMethods util = new UtilMethods(driver);
 
             if (couponText.equals("edgewords")) {
                 BigDecimal rate = util.findDiscountForCode("discount.csv", "edgewords");

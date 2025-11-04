@@ -11,10 +11,10 @@ import project_tests.steps.*;
 import project_tests.utilities.*;
 
 public class ProceedToCheckoutStepDefinitions {
-    ProceedToCheckoutStep proceedToCheckoutStep = new ProceedToCheckoutStep(Hooks.getDriver());
+    UtilMethods utilMethods = new UtilMethods(Hooks.getDriver());
 
-    @And("user navigates to checkout")
+    @When("the user navigates to checkout")
     public void navigateToCheckout (){
-        proceedToCheckoutStep.navigateToCheckout();
+        utilMethods.navigateToCheckout();
     }
 }

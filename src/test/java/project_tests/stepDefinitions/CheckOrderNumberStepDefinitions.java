@@ -11,10 +11,10 @@ import project_tests.utilities.*;
 
 public class CheckOrderNumberStepDefinitions {
 
-    CheckOrderNumberStep checkOrderNumberStep = new CheckOrderNumberStep(Hooks.getDriver());
+    UtilMethods utilMethods = new UtilMethods(Hooks.getDriver());
 
     @Then("order number in checkout should match order number in previous orders")
     public void setCheckPriceStep (){
-        checkOrderNumberStep.checkOrderNumbersMatch();
+        utilMethods.checkOrderNumbersMatch();
     }
 }

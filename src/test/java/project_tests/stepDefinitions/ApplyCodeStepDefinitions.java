@@ -11,10 +11,10 @@ import project_tests.steps.*;
 import project_tests.utilities.*;
 
 public class ApplyCodeStepDefinitions {
-    ApplyCodeStep applyCodeStep = new ApplyCodeStep(Hooks.getDriver());
+    UtilMethods utilMethods = new UtilMethods(Hooks.getDriver());
 
     @When("the user clicks apply coupon with a valid code")
     public void navigateToShop(){
-        applyCodeStep.applyDiscountCode();
+        utilMethods.applyDiscountCode();
     }
 }

@@ -11,11 +11,11 @@ import project_tests.steps.*;
 import project_tests.utilities.*;
 
 public class CheckoutFormStepDefinitions {
-    CheckoutFormStep checkoutFormStep = new CheckoutFormStep(Hooks.getDriver());
+    UtilMethods utilMethods = new UtilMethods(Hooks.getDriver());
 
-    @And("the user completes checkout form")
+    @And("places an order")
     public void completeCheckoutForm(){
-        checkoutFormStep.completeCheckoutForm();
+        utilMethods.completeCheckoutForm();
     }
 
 }

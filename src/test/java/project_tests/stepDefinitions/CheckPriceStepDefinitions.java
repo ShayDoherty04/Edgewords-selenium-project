@@ -10,10 +10,10 @@ import project_tests.steps.*;
 import project_tests.utilities.*;
 
 public class CheckPriceStepDefinitions {
-    CheckPriceStep checkPriceStep = new CheckPriceStep(Hooks.getDriver());
+    UtilMethods utilMethods = new UtilMethods(Hooks.getDriver());
 
     @Then("total should equal subtotal minus discount plus shipping")
     public void setCheckPriceStep (){
-        checkPriceStep.checkPriceWithDiscount();
+        utilMethods.checkPriceWithDiscount();
     }
 }
