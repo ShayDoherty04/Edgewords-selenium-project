@@ -7,7 +7,6 @@ import java.time.Duration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-//import project_tests.utilities.TestBase;
 import project_tests.utilities.UtilMethods;
 
 
@@ -87,14 +86,7 @@ public class Shop {
 
     //method to call any page action passed to it
     public void Shop(Runnable... products){
-//        dissmissLink();
         for (Runnable product : products) {
-//            try {
-//                Thread.sleep(2000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-            //dissmissLink();
             product.run();
         }
         logger.debug("Added items to cart");
