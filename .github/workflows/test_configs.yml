@@ -41,4 +41,11 @@ jobs:
       - name: Run Selenium tests
         run: mvn clean test
 
+      #log bdd steps
+      - name: Upload Cucumber HTML report
+        uses: actions/upload-artifact@v3
+        with:
+          name: cucumber-report
+          path: target/cucumber-report.html
+
 
