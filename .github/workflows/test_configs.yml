@@ -26,7 +26,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'  # Popular OpenJDK distribution
-          java-version: '25'
+          java-version: '25.0.0'
 
       #step3 cache maven dependencies
       - name: Cache Maven dependencies
