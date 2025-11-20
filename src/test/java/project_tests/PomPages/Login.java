@@ -27,6 +27,8 @@ public class Login {
 
     By loginBtn = By.cssSelector("button.woocommerce-form-login__submit");
 
+    //dismiss btn locator
+    By dismissLink = By.linkText("Dismiss");
 
     //constructor
     public Login(WebDriver driver){
@@ -51,6 +53,7 @@ public class Login {
     }
 
     public void Login (String user, String pass){
+        wait.until(ExpectedConditions.elementToBeClickable(dismissLink)).click();
         enterUser(user);
         enterpass(pass);
         clickLogin();
