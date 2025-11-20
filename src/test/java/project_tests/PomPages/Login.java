@@ -3,12 +3,14 @@ package project_tests.PomPages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
 //import project_tests.utilities.TestBase;
 
 
@@ -55,7 +57,10 @@ public class Login {
     public void Login (String user, String pass){
         enterUser(user);
         enterpass(pass);
-        wait.until(ExpectedConditions.elementToBeClickable(dismissLink)).click();
+        List<WebElement> dismissButtons = driver.findElements(By.linkText("Dismiss"));
+        if (!dismissButtons.isEmpty()) {
+            dismissButtons.get(0).click();
+        }
         clickLogin();
         logger.debug("Logged in");
     }
