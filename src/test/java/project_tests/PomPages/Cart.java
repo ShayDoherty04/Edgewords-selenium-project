@@ -86,13 +86,13 @@ public class Cart {
     }
 
     public void goToCheckout(){
-        wait.until(ExpectedConditions.elementToBeClickable(dismissLink)).click();
+        //wait.until(ExpectedConditions.elementToBeClickable(dismissLink)).click();
         WebElement goToCheckout = wait.until(ExpectedConditions.presenceOfElementLocated(proceedCheckout));
         ((JavascriptExecutor)driver).executeScript("arguments[0].click();", goToCheckout);
     }
     public void clearCart(){
         List<WebElement> removeButtons = driver.findElements(removeItem);
-        driver.findElement(dismissLink).click();
+        //driver.findElement(dismissLink).click();
         while (!removeButtons.isEmpty()){
             WebElement removeButton = removeButtons.get(0);
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", removeButton);
