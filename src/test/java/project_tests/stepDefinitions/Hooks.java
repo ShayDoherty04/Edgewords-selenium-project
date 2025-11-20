@@ -30,14 +30,23 @@ public class Hooks {
 
     @After
     public void tearDown() {
-        LogOut logOut = new LogOut(driver);
-        logOut.LogOut();
+
         if (driver != null) {
-            driver.quit();
+            try {
+                LogOut logOut = new LogOut(driver);
+                logOut.LogOut();
+            } catch (Exception e) {
+                System.out.println("LogOut failed: " + e.getMessage());
+            } finally {
+                driver.quit();
+                driver = null;
+            }
         }
-
-
     }
+
+
+
+
 
     public static WebDriver getDriver() {
         return driver;
