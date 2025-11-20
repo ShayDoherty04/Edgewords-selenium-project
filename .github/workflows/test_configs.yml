@@ -1,0 +1,41 @@
+
+name: "selenium tests for edgewords"
+
+run-name: "Tests triggered by ${{ github.actor }}"
+
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+  pull_request:
+    branches:
+      - main
+      - 'releases/**'
+jobs:
+  selenium-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      #step 2: setup java
+      - name: setup java
+        uses: actions/setup-java@v3
+
+      #step3 cache maven dependencies
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+            path: ~/.m2/repository
+            key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+            restore-keys: |
+              ${{ runner.os }}-maven-
+
+      #run tests
+      - name: Run Selenium tests
+        run: mvn clean test
+
+
