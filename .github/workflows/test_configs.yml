@@ -24,6 +24,9 @@ jobs:
       #step 2: setup java
       - name: setup java
         uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'  # Popular OpenJDK distribution
+          java-version: '17'
 
       #step3 cache maven dependencies
       - name: Cache Maven dependencies
