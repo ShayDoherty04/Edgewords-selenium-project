@@ -3,13 +3,18 @@ package project_tests.PomPages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.time.Duration;
 //import project_tests.utilities.TestBase;
 
 
 public class Login {
     WebDriver driver;
+    WebDriverWait wait;
 
     private static final Logger logger = LoggerFactory.getLogger(Login.class);
 
@@ -26,6 +31,7 @@ public class Login {
     //constructor
     public Login(WebDriver driver){
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     //page actions
@@ -41,7 +47,7 @@ public class Login {
     //click login
     //enter password
     public void clickLogin (){
-        driver.findElement(loginBtn).click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
     }
 
     public void Login (String user, String pass){
