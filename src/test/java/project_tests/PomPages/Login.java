@@ -53,9 +53,9 @@ public class Login {
     }
 
     public void Login (String user, String pass){
-        wait.until(ExpectedConditions.elementToBeClickable(dismissLink)).click();
         enterUser(user);
         enterpass(pass);
+        wait.until(ExpectedConditions.elementToBeClickable(dismissLink)).click();
         clickLogin();
         logger.debug("Logged in");
     }
