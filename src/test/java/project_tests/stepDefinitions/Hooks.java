@@ -6,12 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import project_tests.utilities.EnvVariables;
 import project_tests.PomPages.*;
 //import project_tests.utilities.TestBase;
 import test_flows.CleanUp;
+
+import java.net.URL;
 
 
 public class Hooks {
@@ -20,13 +23,25 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless=new");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        try {
+            driver = new RemoteWebDriver(
+                    new URL("http://localhost:4444/wd/hub"),
+                    options
+            );
+        }
+        catch (Exception e){
+            System.err.println(e);
+        }
+
+        if (driver == null) {
+            throw new RuntimeException("Cannot connect to Selenium Hub");
+        }
+
         String url = EnvVariables.get("URL");
         driver.get(url);
+        driver.manage().window().maximize();
         CleanUp cleanUp = new CleanUp(driver);
         cleanUp.run();
     }
